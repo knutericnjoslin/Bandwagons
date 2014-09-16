@@ -38,7 +38,7 @@ for u=1:1:200
 end
 
 p2_match_go = p_GO_2_grid(noise, :)
-p2_match_stay = p_STAY_2_grd(noise, :)
+p2_match_stay = p_STAY_2_grid(noise, :)
 
 dist = max(abs(p_GO_1 - p_GO_1_grid(noise,:)));
 

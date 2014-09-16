@@ -1,4 +1,4 @@
-function [p_go]=QRE20_SecondStage_Match_Go(p0, tau, B2Y, B1Y, a, b, p_go_1)
+function [p_go]=QRE20_SecondStage_Match_Go(p0, tau, B2Y, p_go_1)
 
 % Description: 
 
