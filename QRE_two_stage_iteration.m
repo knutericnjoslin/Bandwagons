@@ -5,7 +5,7 @@ ksteps=0;
 maxsteps=40;
 dist=1;
 allpha=1/2;
-noise=20;
+noise=15;
 
 p_go_0=ones(1,20)/2;  
 % Initially no errors in the second stage
@@ -27,7 +27,7 @@ end;
 
 for u=1:1:200
     tau=u/10;
-    [p_go]=QRE20_SecondStage_Match_Go(p_go_0, tau, @B2Y_20, @B1Y_20, a, b, p_GO_1_grid(noise,:));
+    [p_go]=QRE20_SecondStage_Match_Go(p_go_0, tau, @B2Y_20, p_GO_1_grid(noise,:));
     p_GO_2_grid(u,:)=p_go;
 end
 
@@ -37,8 +37,9 @@ for u=1:1:200
     p_STAY_2_grid(u,:)=p_go;
 end
 
-p2_match_go = p_GO_2_grid(noise, :)
-p2_match_stay = p_STAY_2_grid(noise, :)
+
+p2_match_go = p_GO_2_grid(noise, :);
+p2_match_stay = p_STAY_2_grid(noise, :);
 
 dist = max(abs(p_GO_1 - p_GO_1_grid(noise,:)));
 

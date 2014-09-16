@@ -21,8 +21,10 @@ while (ksteps<maxsteps) && (dist>tol)
     
     for i=1:1:20
      for j=1:1:20
-       piexp_go(1,i) = piexp_go(1,i) + (1/20)*( p_go(1,j)*B2Y(i) + (1 - p_go(1,j) )*( p2_match_go(j)*B2Y(i) + (1-p2_match_go(j))*B1Y(i,a,b) ) );
-       piexp_stay(1,i) = piexp_stay(1,i) + (1/20)*( p_go(1,j)*( p2_match_go(i)*B2Y(i) + (1 - p2_match_go(i))*5 ) + (1 - p_go(1,j))*( p2_match_stay(j)*( p2_match_stay(i)*B2Y(i) + (1-p2_match_stay(i))*B1Y(i,a,b) ) + (1 - p2_match_stay(j))*( p2_match_stay(i)*5 + (1-p2_match_stay(i))*7 ) ) );                       
+       piexp_go(1,i) = piexp_go(1,i) + (1/20)*( p_go(1,j)*B2Y(i) +... 
+                      (1 - p_go(1,j) )*( p2_match_go(j)*B2Y(i) + (1-p2_match_go(j))*B1Y(i,a,b) ) );
+       piexp_stay(1,i) = piexp_stay(1,i) + (1/20)*( p_go(1,j)*( p2_match_go(i)*B2Y(i) + (1 - p2_match_go(i))*5 ) +... 
+           (1 - p_go(1,j))*( p2_match_stay(j)*( p2_match_stay(i)*B2Y(i) + (1-p2_match_stay(i))*B1Y(i,a,b) ) + (1 - p2_match_stay(j))*( p2_match_stay(i)*5 + (1-p2_match_stay(i))*7 ) ) );                       
      end;
     end;   
     

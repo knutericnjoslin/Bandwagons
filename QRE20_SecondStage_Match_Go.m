@@ -20,9 +20,11 @@ while (ksteps<maxsteps) && (dist>tol)
     piexp_go=zeros(1,20);
     piexp_stay=zeros(1,20);
     
-    for i=1:1:20        
-       piexp_go(1,i) = piexp_go(1,i) + (p_go_1(i)/sum(p_go_1(i)))*B2Y(i) ;
-       piexp_stay(1,i) = piexp_stay(1,i) + (p_go_1(i)/sum(p_go_1(i)))*5 ;
+    for i=1:1:20; 
+       for j=1:1:20; 
+       piexp_go(1,i) = piexp_go(1,i) + ( p_go_1(j)/sum(p_go_1(j)) ) *B2Y(i) ;
+       piexp_stay(1,i) = piexp_stay(1,i) + ( p_go_1(j)/sum(p_go_1(j)) ) *5 ;
+       end;
     end;
    
     for i=1:1:20

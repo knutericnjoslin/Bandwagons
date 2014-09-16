@@ -13,23 +13,17 @@ allpha=1/2;
 
 p_go = p0;
 
-% Core: find QRE
+% The QRE estimation
 
 while (ksteps<maxsteps) && (dist>tol)
 
     piexp_go=zeros(1,20);
     piexp_stay=zeros(1,20);
     
-    
     for i=1:1:20
      for j=1:1:20
-       if (j <= 6)         %   Here, if agent of type i chooses "go" the agent of type j will not follow. Similarly, if the type j agent goes then the type i agent will not follow 
-       piexp_go(1,i) = piexp_go(1,i) + ((1 - p_go_1(i))/sum(p_go_1(i)))*(p_go(1,j)*B2Y(i) + (1-p_go(1,j))*B1Y(i,a,b));
-       piexp_stay(1,i) = piexp_stay(1,i) + ((1 - p_go_1(i)))/sum(p_go_1(i))*((p_go(1,j)*5 + (1-p_go(1,j))*7));
-       else %   for (j > 3) Here the type j agent will follow
-       piexp_go(1,i) = piexp_go(1,i) + ((1 - p_go_1(i)))/sum(p_go_1(i))*( p_go(1,j)*B2Y(i) + (1-p_go(1,j) )*B2Y(i));
-       piexp_stay(1,i) = piexp_stay(1,i) + ((1 - p_go_1(i)))/sum(p_go_1(i))*( (p_go(1,j)*5 + (1-p_go(1,j))*7) );
-       end;
+       piexp_go(1,i) = piexp_go(1,i) + ((1 - p_go_1(j))/sum(1 - p_go_1(j))) * ( p_go(1,j)*B2Y(i) + (1-p_go(1,j))*B1Y(i,a,b) );
+       piexp_stay(1,i) = piexp_stay(1,i) + ((1 - p_go_1(j)))/sum(1 - p_go_1(j)) * ( p_go(1,j)*5 + (1-p_go(1,j))*7 );
      end;
     end;
    
